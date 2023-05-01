@@ -18,7 +18,6 @@ class AuthorizationMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         $ip = $request->ip();
-        echo $ip;
         if (IpModel::where("ip", $ip)->get()->first() == null) {
             IpModel::create(["ip" => $ip, "request_counter" => 0, "time_to_delete_request" => null, "banned" => false]);
         }
