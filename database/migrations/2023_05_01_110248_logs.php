@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string("ip");
             $table->integer("request_counter");
-            $table->dateTime("time_to_delete_request");
+            $table->dateTime("time_to_delete_request")->nullable();
             $table->boolean("banned");
         });
     }
